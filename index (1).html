@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Université kimbanguiste</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  display: flex;
+  background: #eef2f3;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #0b3d2e;
+  color: white;
+  padding-top: 20px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sidebar button:hover {
+  background: #145a43;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* SECTIONS */
+.section {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background: #0b3d2e;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #145a43;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #0b3d2e;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>université kimbanguiste</h2>
+  <button onclick="showPage('dashboard')">🏠 Dashboard</button>
+  <button onclick="showPage('login')">🔐 Connexion</button>
+  <button onclick="showPage('inscription')">📝 Inscription</button>
+  <button onclick="showPage('liste')">📋 Liste</button>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- LOGIN -->
+  <div id="login" class="section active">
+    <div class="card">
+      <h2>Connexion</h2>
+      <input type="text" placeholder="Nom utilisateur">
+      <input type="password" placeholder="Mot de passe">
+      <button class="btn" onclick="showPage('dashboard')">Se connecter</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="section">
+    <div class="card">
+      <h2>Dashboard</h2>
+      <p>Bienvenue dans le système universitaire.</p>
+    </div>
+  </div>
+
+  <!-- INSCRIPTION -->
+  <div id="inscription" class="section">
+    <div class="card">
+      <h2>Inscription étudiant</h2>
+
+      <input type="text" placeholder="Nom">
+      <input type="text" placeholder="Prénom">
+      <input type="text" placeholder="Matricule">
+
+      <br>
+
+      <button class="btn">Enregistrer</button>
+      <button class="btn">Modifier</button>
+      <button class="btn">Supprimer</button>
+      <button class="btn">Rechercher</button>
+    </div>
+  </div>
+
+  <!-- LISTE -->
+  <div id="liste" class="section">
+    <div class="card">
+      <h2>Liste des étudiants</h2>
+
+      <table>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Matricule</th>
+        </tr>
+
+        <tr>
+          <td>shomba</td>
+          <td>Ben</td>
+          <td>I001</td>
+        </tr>
+
+        <tr>
+          <td>kasindi</td>
+          <td>olivia</td>
+          <td>I002</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showPage(id) {
+  let sections = document.querySelectorAll('.section');
+  sections.forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
